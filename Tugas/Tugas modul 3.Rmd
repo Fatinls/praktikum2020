@@ -1,7 +1,7 @@
 ---
-title: "coba2"
-author: "fatin"
-date: "2022-09-20"
+title: "Tugas Modul 3"
+author: "123200071_Fatin Luthfi Salman"
+date: "2022-09-19"
 output: html_document
 ---
 
@@ -19,11 +19,15 @@ str(murders)
 
 ```
   Berdasarkan data murders, pernyataan yang paling menggambarkan karakter dari tiap variabel pada data frame adalah pernyataan :
-  a. Terdiri dari 51 negara
+  a. Terdiri dari 51 negara, dan
   c. Data berisi Nama negara bagian, singkata dari nama negara bagian, wilayah        negara bagian, dan populasi negara bagian serta jumlah total pembunuhan          pada tahun 2010.
   
 ## nomor 2
 Sebutkan  apa saja nama kolom yang digunakan pada data frame ?
+
+```{r}
+names(murders)
+```
 
   nama kolom yang digunakan pada data frame murders adalah :
   a. state
@@ -73,7 +77,6 @@ table(state.region)
 
 
 
-```{r echo=FALSE}
-summary(pressure)
-```
+
+
 
