@@ -1,0 +1,75 @@
+---
+title: "Tugas  Modul 7"
+author: "Fatin Luthfi Salman_123200071"
+date: "2022-10-29"
+output: pdf_document
+---
+
+
+1. Gunakan as_tibble untuk mengkonversi tabel dataset “US murders” dalam bentuk tibble dan simpan dalam objek baru bernama ‘murders_tibble’.
+
+```{r}
+library(dslabs)
+library(tidyverse)
+data(murders)
+murders_tibble <- as_tibble(murders)
+murders_tibble
+```
+
+2. Gunakan fungsi group_by untuk mengkonversi dataset “US murders” menjadi sebuah tibble yang dikelompokkan berdasarkan ‘region’.
+
+```{r}
+murders_tibble%>% group_by(region)
+
+```
+3. Tulis script tidyverse yang menghasilkan output yang sama dengan perintah berikut:
+```{r}
+exp(mean(log(murders$population)))
+```
+
+Gunakan operator pipe sehingga setiap fungsi dapat dipanggil tanpa menambahkanargumen.
+Gunakan dot operator untuk mengakses populasi.
+
+```{r}
+murders %>% .$population %>% log() %>% mean() %>% exp() 
+```
+4. Gunakan map_df untuk membuat data frame yang terdiri dari tiga kolom: ‘n’, ‘s_n’, dan ‘s_n_2’. Kolom pertama harus berisi angka 1 hingga 100. Kolom kedua dan ketiga masing-masing harus berisi penjumlahan 1 hingga n, dimana n menyatakan jumlah baris.
+
+```{r}
+library(dplyr)
+library(purrr)
+
+df <-1:100 %>% 
+  map_df(~ tibble(n =(.x),s_n= (.x )*(.x+1)/2,s_n_2=(((.x)*(.x+1)/2)*((.x )*(.x+1)/2))))
+
+print(df[1:100,])
+
+```
+
+
+
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
